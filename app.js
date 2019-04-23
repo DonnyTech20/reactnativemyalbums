@@ -1,23 +1,26 @@
 import React from 'react';
-import {  StyleSheet, ImageBackground }  from 'react-native';
+import { AppRegistry, View, StyleSheet, ImageBackground } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
 
 
 
 // Create a component 
-export default class App extends React.Component  {
-  render() {
-    return (
-  <ImageBackground source={require('./src/components/img/showcase.jpeg')}
+const App = () => {
+<ImageBackground 
+  source={require('./src/components/img/showcase.jpeg')}
    style={styles.container}>
+<View style={{ flex: 1 }}>
+
   <Header headerPassDownProperty={'Albums'}  />
-  <AlbumList />
-  
-</ImageBackground>
-    );
-  }
-}
+
+<AlbumList />
+
+</View>
+   </ImageBackground>
+
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,4 +31,4 @@ const styles = StyleSheet.create({
 });
 
   // Render it to device
-  //AppRegistry.registerComponent('firstnativeproject', () => App);
+  AppRegistry.registerComponent('albums', () => App);
