@@ -1,34 +1,42 @@
-import React from 'react';
-import { AppRegistry, View, StyleSheet, ImageBackground } from 'react-native';
+// Import a library to help create a component
+
+import React, { Component } from 'react';
+import { ImageBackground, View, StyleSheet } from 'react-native';
 import Header from './src/components/Header';
 import AlbumList from './src/components/AlbumList';
 
+// Create a component
+class App extends Component {
+	render() {
+		return (
+			<View style={styles.container}>
+				<ImageBackground source={require('./src/img/hands.jpg')} style={styles.inner}>
+				
+					<Header headerPassDownProperty={'Albums'} />
 
-
-// Create a component 
-const App = () => {
-<ImageBackground 
-  source={require('./src/components/img/showcase.jpeg')}
-   style={styles.container}>
-<View style={{ flex: 1 }}>
-
-  <Header headerPassDownProperty={'Albums'}  />
-
-<AlbumList />
-
-</View>
-   </ImageBackground>
-
-};
+					<AlbumList />
+				</ImageBackground>
+			</View>
+		);
+	}
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+	container: {
+		flex: 1,
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginTop: 50
+	},
 
-    },
+	inner: {
+		flex: 1,
+		width: null,
+		height: null,
+		backgroundColor: 'rgba(255, 255, 255, .7)'
+	}
 });
 
-  // Render it to device
-  AppRegistry.registerComponent('albums', () => App);
+// Render it to the device
+//AppRegistry.registerComponent('App', () => App);
+export default App;

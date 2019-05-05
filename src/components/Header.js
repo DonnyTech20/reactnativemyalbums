@@ -1,39 +1,40 @@
 // Import  libraries for making a component 
 import React from 'react';
-import { Text,View } from 'react-native';
+import { Text, View } from 'react-native';
 
 
 // Make a component with jsx
 const Header = (props) => {
 
-const { textStyle, container, inner } = styles;
+const { textStyle, viewStyle } = styles;
 
 
     return (
-      <View style={ styles.inner }>
-      <Text style={ styles.textStyle }>
-      {props.headerPassDownProperty}
-      </Text>
+      <View style={ viewStyle}>
+      <Text style={ textStyle }>
+      {props.headerPassDownProperty} </Text> 
       </View>
      );
 };
 
 const styles = {
-container: {
-flex: 1,
+viewStyle: {
+backgroundColor: '#F8F8F8',
 justifyContent: 'center',
 alignItems: 'center',
+height: 60,
+paddingTop: 15,
+shadowColor: '#000',
+shadowOffset: { width: 0, height: 2 },
+shadowOpacity: 0.2,
+elevation: 2,
+position: 'relative'
 },
 
 textStyle: {
-fontSize: 20,
- },
-
- inner: {
- width: '80%',
- height: '80%',
- backgroundColor: 'rgba(255, 255, 255, .7)'
+fontSize: 20
  }
+
 };
 
 // Make the component available to other components
